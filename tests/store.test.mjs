@@ -33,6 +33,16 @@ test("withdrawn acquisition redirects and pages are absent", async () => {
   await assert.rejects(stat(join(root, "dist", "assets", "Shadow-of-the-Moon-Studios.png")));
 });
 
+test("cache policy revalidates mutable routes and isolates immutable assets", async () => {
+  const headers = await read("_headers");
+  assert.match(headers, /\/games\/\*\s+Cache-Control: no-store/);
+  assert.match(headers, /\/catalog\/\*\s+Cache-Control: public, max-age=0, must-revalidate/);
+  assert.match(headers, /\/404\.html\s+Cache-Control: no-store/);
+  assert.match(headers, /\/assets\/immutable\/\*\s+Cache-Control: public, max-age=31536000, immutable/);
+  assert.match(headers, /\/downloads\/immutable\/\*\s+Cache-Control: public, max-age=31536000, immutable/);
+  assert.doesNotMatch(headers, /s-maxage=604800/);
+});
+
 test("design remains responsive and accessible", async () => {
   const css = await read("styles.css");
   const home = await read("index.html");

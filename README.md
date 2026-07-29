@@ -11,3 +11,10 @@ Downloads, and Settings; the existing Firehammer Library implementation remains 
 subsystem and compatibility foundation.
 
 Run `npm test` and `npm run build` before deployment.
+
+## Cache policy
+
+`src/_headers` keeps HTML and catalog responses immediately revalidatable and marks product pages
+and the custom 404 document `no-store`. Long-lived immutable caching is reserved for explicitly
+versioned files under `assets/immutable/` and `downloads/immutable/`; ordinary assets and downloads
+must not use that policy.

@@ -1,0 +1,30 @@
+# HTML remains immediately revalidatable. Product pages use no-store so a
+# withdrawn route cannot be retained as an active page by a shared cache.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/games/*
+  Cache-Control: no-store
+
+# Catalog changes must become visible promptly.
+/catalog/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Missing and intentionally unavailable documents are never durable cache entries.
+/404.html
+  Cache-Control: no-store
+
+# Only assets deliberately placed in these versioned namespaces may use
+# long-lived immutable caching.
+/assets/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/downloads/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Other download URLs revalidate until an immutable artifact contract applies.
+/downloads/*
+  Cache-Control: public, max-age=0, must-revalidate

@@ -7,7 +7,9 @@
   "description": "A controller-first neon survival game with escalating waves, synthesized sound, and an orbital boss.",
   "artwork": "/assets/Shadow-of-the-Moon-Studios.png",
   "currentStableVersion": "2.0.1",
-  "supportedOperatingSystems": ["Windows"],
+  "supportedOperatingSystems": [
+    "Windows"
+  ],
   "releaseChannel": "production/stable",
   "buildCommit": "974be73ddc2d01ad3e767cbddca30bcdeccc6273",
   "releaseDate": "2026-07-29",

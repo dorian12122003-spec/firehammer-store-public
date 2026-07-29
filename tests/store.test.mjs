@@ -75,6 +75,15 @@ test("public export contains no secrets, local paths, source, or oversized files
   assert.equal((await readdir(join(root, "dist"))).includes("node_modules"), false);
 });
 
+test("catalog updater enforces the explicit verified-release contract", async () => {
+  const updater = await readFile(join(root, "scripts", "add-release.mjs"), "utf8");
+  assert.match(updater, /production\/stable/);
+  assert.match(updater, /firehammerSignature/);
+  assert.match(updater, /store-catalog\.json/);
+  assert.match(updater, /releaseRepository/);
+  assert.match(updater, /publisher-image/);
+  assert.doesNotMatch(updater, /C:\\Users|OneDrive|Desktop/);
+});
 test("new catalog entries do not require changing existing game behavior", async () => {
   const builder = await readFile(join(root, "scripts", "build.mjs"), "utf8");
   assert.match(builder, /readdir\(catalogSource\)/);

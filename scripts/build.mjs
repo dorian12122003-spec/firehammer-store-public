@@ -21,12 +21,17 @@ async function readRecords(directory) {
   }
 }
 
-const games = (await readRecords(gamesSource)).map(game => ({
+const publicationState = JSON.parse(await readFile(
+  join(root, "catalog-source", "publication-state.json"), "utf8"));
+const activeProducts = new Set(publicationState.activeProducts ?? []);
+const games = (await readRecords(gamesSource)).filter(game =>
+  activeProducts.has(game.gameId)).map(game => ({
   ...game,
   productType: game.productType ?? "game",
   productId: game.gameId
 }));
-const platformProducts = await readRecords(productsSource);
+const platformProducts = (await readRecords(productsSource)).filter(product =>
+  activeProducts.has(product.productId));
 const products = [...games, ...platformProducts].sort((a, b) =>
   (a.productId ?? a.gameId).localeCompare(b.productId ?? b.gameId));
 
@@ -44,7 +49,8 @@ for (const product of products) {
 
 const index = {
   schema: "firehammer-store-catalog-v2",
-  publisher: "Shadow of the Moon Studios",
+  creator: "Dorian Cockrel",
+  publicationStatus: "paused",
   distributionPlatform: "Firehammer",
   supportedPlatformIds: ["windows-x64", "linux-x64", "linux-arm64", "android", "ios"],
   products: products.map(product => {

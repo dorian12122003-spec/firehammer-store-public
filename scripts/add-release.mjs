@@ -3,6 +3,10 @@ import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const publicationState = JSON.parse(await readFile(
+  join(root, "catalog-source", "publication-state.json"), "utf8"));
+if (publicationState.status !== "active")
+  throw new Error("Public product publication is paused. A reviewed identity activation is required before adding a release.");
 const args = new Map();
 for (let index = 2; index < process.argv.length; index += 2) args.set(process.argv[index], process.argv[index + 1]);
 const handoffPath = args.get("--handoff");
@@ -21,7 +25,7 @@ catch {
   try { game = JSON.parse(await readFile(seedPath, "utf8")); }
   catch { throw new Error("A new game requires reviewed store-catalog.json metadata."); }
 }
-if (game.gameId !== handoff.gameId || game.publisher !== "Shadow of the Moon Studios") throw new Error("Catalog seed identity mismatch.");
+if (game.gameId !== handoff.gameId || game.publisher !== "Dorian Cockrel") throw new Error("Catalog seed identity mismatch.");
 const version = handoff.version;
 const routeBase = `/downloads/${handoff.gameId}/${version}`;
 game.currentStableVersion = version;

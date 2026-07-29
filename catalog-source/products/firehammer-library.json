@@ -1,0 +1,23 @@
+{
+  "schema": "firehammer-store-product-v2",
+  "productId": "firehammer-library",
+  "productType": "platform-client",
+  "displayName": "Firehammer Library",
+  "publisher": "Shadow of the Moon Studios",
+  "platformEcosystem": "Firehammer",
+  "description": "A controller-friendly Windows client for verified installation, launch, repair, and local game management.",
+  "availability": "trust-onboarding-required",
+  "platforms": [
+    {"id": "windows-x64", "status": "planned-release"},
+    {"id": "linux-x64", "status": "future"},
+    {"id": "linux-arm64", "status": "future"},
+    {"id": "android", "status": "future"},
+    {"id": "ios", "status": "future"}
+  ],
+  "release": null,
+  "trust": {
+    "status": "onboarding-required",
+    "proposedKeyId": "FIREHAMMER-LIBRARY-RELEASE-2026-01",
+    "authenticode": "not-yet-signed"
+  }
+}

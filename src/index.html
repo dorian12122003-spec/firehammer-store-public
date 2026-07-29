@@ -3,46 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Free games published by Shadow of the Moon Studios and distributed through Firehammer.">
-  <title>Firehammer Store — Free Games</title>
+  <meta name="description" content="Official Firehammer games and platform software from Shadow of the Moon Studios.">
+  <title>Firehammer Store</title>
+  <link rel="icon" href="/assets/firehammer-mark.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="/" aria-label="Firehammer Store home"><span class="brand-mark">FH</span><span><strong>FIREHAMMER</strong><small>PUBLIC STORE</small></span></a>
-    <nav aria-label="Primary"><a href="#games">Games</a><a href="#trust">Verification</a></nav>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Firehammer Store home"><img src="/assets/firehammer-mark.svg" alt=""><span><strong>Firehammer</strong><small>Store</small></span></a>
+    <nav aria-label="Primary navigation"><a href="#products">Products</a><a href="#platform">Platform</a><a href="#trust">Verification</a></nav>
   </header>
   <main>
     <section class="hero">
-      <div>
-        <p class="eyebrow">FREE GAMES. VERIFIED RELEASES. YOUR COPY.</p>
-        <h1>Play freely.<br><span>Keep what you download.</span></h1>
-        <p>Official games from Shadow of the Moon Studios, distributed through Firehammer with signed manifests and public checksums.</p>
-        <a class="button primary" href="#games">Browse games</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Official releases. Durable ownership.</p>
+        <h1>Games you can keep.<br><span>A platform you can trust.</span></h1>
+        <p>Firehammer distributes free games and clear verification material from Shadow of the Moon Studios. Download a portable copy, or use Firehammer Library as your managed recovery point.</p>
+        <div class="actions"><a class="button primary" href="#products">Explore products</a><a class="button quiet" href="#trust">How verification works</a></div>
       </div>
-      <div class="orbit" aria-hidden="true"><i></i><b>F</b></div>
+      <div class="forge-plate" aria-label="Firehammer platform artwork"><img src="/assets/firehammer-mark.svg" alt=""><span>BUILT FOR PLAY<br>ENGINEERED FOR RECOVERY</span></div>
     </section>
-    <section id="games" class="section">
-      <p class="eyebrow">CURRENT RELEASES</p>
-      <h2>Games built to be kept.</h2>
-      <article class="game-card">
-        <div class="game-art"><b>NO</b></div>
-        <div>
-          <p class="tag">OFFICIAL RELEASE · WINDOWS</p>
-          <h3>Neon Orbit</h3>
-          <p>A controller-first neon survival game with escalating waves, synthesized sound, and an orbital boss.</p>
-          <p class="meta">Version 2.0.1 · Production/Stable · 1 player</p>
-          <a class="button primary" href="/games/neon-orbit/">View Neon Orbit</a>
-        </div>
-      </article>
+
+    <section id="products" class="section products">
+      <header class="section-heading"><div><p class="eyebrow">Featured products</p><h2>One ecosystem. Clear choices.</h2></div><p>Games and platform software use the same public catalog without pretending unavailable releases exist.</p></header>
+      <div class="product-grid">
+        <article class="product-card game-product">
+          <a class="product-art orbit-art" href="/games/neon-orbit/" aria-label="View Neon Orbit"><span class="planet"></span><span class="orbit-line one"></span><span class="orbit-line two"></span><b>NEON<br>ORBIT</b><small>ABSTRACT KEY ART</small></a>
+          <div class="product-copy"><span class="product-type">Game · Windows</span><h3>Neon Orbit</h3><p>A controller-first neon survival game with escalating waves, synthesized sound, and an orbital boss.</p><div class="release-row"><span class="status verified">Official release</span><span>Version 2.0.1</span></div><a class="text-link" href="/games/neon-orbit/">View release and downloads</a></div>
+        </article>
+        <article class="product-card platform-product">
+          <div class="product-art library-art"><img src="/assets/firehammer-library-icon.svg" alt=""><small>PLATFORM CLIENT</small></div>
+          <div class="product-copy"><span class="product-type">Platform client · Windows x64</span><h3>Firehammer Library</h3><p>A controller-friendly home for verified installs, repair, updates, and local play.</p><div class="release-row"><span class="status pending">Trust onboarding required</span></div><span class="text-link unavailable">Public release not yet available</span></div>
+        </article>
+      </div>
     </section>
-    <section id="trust" class="trust">
-      <p class="eyebrow">PUBLIC VERIFICATION</p>
-      <h2>Trust begins with the studio root.</h2>
-      <p>Each game release key is authorized by the Shadow of the Moon Studios root. Signed manifests and checksums let players verify official release bytes independently.</p>
-      <code>3e5050fb0701559429b644e826b47b3e168605405de97eaa1838070b08e68d95</code>
+
+    <section id="platform" class="platform-section">
+      <div><p class="eyebrow">Firehammer Library</p><h2>Install. Verify. Play.</h2><p>The Library is being prepared as Firehammer’s Windows-first client. Its production release remains blocked until its dedicated release key is authorized and its final package is signed.</p></div>
+      <ol><li><b>01</b><span><strong>Install safely</strong>Managed copies stay separate from files you choose to modify.</span></li><li><b>02</b><span><strong>Verify clearly</strong>Release identity, platform, version, and integrity remain visible.</span></li><li><b>03</b><span><strong>Recover deliberately</strong>Repair and restore never pretend altered files are still official.</span></li></ol>
+    </section>
+
+    <section id="trust" class="trust-section">
+      <div><p class="eyebrow">Public verification</p><h2>Simple confirmation. Full evidence.</h2><p>Most players need to know that a release is official, verified, current, and intended for their platform. Technical verification remains available without dominating the download experience.</p><span class="status verified">Studio trust root published</span></div>
+      <div class="fingerprint"><span>Shadow of the Moon Studios root fingerprint</span><code>3e5050fb0701559429b644e826b47b3e168605405de97eaa1838070b08e68d95</code></div>
+    </section>
+
+    <section class="publisher">
+      <img src="/assets/Shadow-of-the-Moon-Studios.png" alt="Shadow of the Moon Studios">
+      <div><p class="eyebrow">Publisher</p><h2>Shadow of the Moon Studios</h2><p>Developed and published within the Firehammer ecosystem by Shadow of the Moon Studios.</p></div>
     </section>
   </main>
-  <footer><span>Shadow of the Moon Studios</span><span>Distributed through Firehammer</span></footer>
+  <footer><span>Shadow of the Moon Studios</span><span>Firehammer Store · No account required</span></footer>
 </body>
 </html>
